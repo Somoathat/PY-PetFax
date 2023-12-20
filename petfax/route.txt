@@ -1,0 +1,15 @@
+-- bob.com
+---- bob.com/suits
+---- bob.com/pets
+-------- bob.com/pets/dog
+-------- bob.com/pets/cats
+
+
+
+-- app.py 
+      --> create_app()
+---- /pets 
+      --> create_app() --> pet.py --> calls the "/" method
+---- /pets/dog
+      --> create_app() --> pet.py --> calls the  "/dog" method
+  

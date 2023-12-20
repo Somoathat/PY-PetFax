@@ -1,11 +1,12 @@
-from flask import (Blueprint, render_template, send_from_directory) 
+from flask import (Blueprint, render_template, send_from_directory, request, redirect)
 import json
 
 pets= json.load(open('pets.json'))
 print(pets)
 
 bp = Blueprint('pet', __name__, url_prefix="/pets")
-bp_facts = Blueprint('fact', __name__, url_prefix='/facts')
+# bp_facts = Blueprint('fact', __name__, url_prefix="/facts")
+# bp.register_blueprint(bp_facts)
 
 @bp.route('/')
 def index(): 
@@ -25,7 +26,6 @@ def single_pet(pet_number):  # each function name has to be unique
     return "<p>No pet number " + pet_number + " found. :( </p>"
 
 
-@bp_facts.route("/", methods=['GET'])
-def new_facts():
-    return send_from_directory('static',"new_facts.html")
-
+#@bp_facts.route("/", methods=['GET'])
+#def new_facts():
+#    return send_from_directory('static',"new_facts.html")
